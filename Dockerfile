@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Копируем собственный конфиг nginx (опционально)
-# COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Копируем статические файлы (HTML, CSS, JS и т.д.) в корневую директорию nginx
 COPY ./html /usr/share/nginx/html

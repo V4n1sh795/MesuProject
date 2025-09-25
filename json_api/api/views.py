@@ -7,13 +7,18 @@ from api.functions import *
 def post(request):
     if request.method == 'POST':
         data = json.loads(request.body)
+        print(data)
         asyncio.run(add_item_to_json(data))
         return JsonResponse("OK")
     if request.method == 'GET':
         return
     return JsonResponse({"error": "POST only"}, status=405)
 @csrf_exempt
-def get(request):
+def get_news(request):
     if request.method == 'GET':
-        data = asyncio.run(read_json('news.json'))
-        return JsonResponse(data)
+        try:
+            data = read_json('news.json')
+            print(data)
+            return JsonResponse(data, safe=False)  # ← safe=False для списков!
+        except Exception as e:
+            return JsonResponse({"error": str(e)}, status=500)

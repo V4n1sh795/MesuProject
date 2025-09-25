@@ -50,7 +50,7 @@ async def get_item_by_id(target_id):
 
 import json
 
-async def read_json(file_path):
+def read_json(file_path):
     """
     Читает JSON-файл и возвращает его содержимое как Python-объект.
     

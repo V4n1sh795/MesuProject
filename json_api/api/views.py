@@ -2,8 +2,7 @@
 import json
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from functions import *
-
+from api.functions import *
 @csrf_exempt
 def post(request):
     if request.method == 'POST':
@@ -16,5 +15,5 @@ def post(request):
 @csrf_exempt
 def get(request):
     if request.method == 'GET':
-        data = asyncio.run(read_json('datacsv/news.json'))
+        data = asyncio.run(read_json('news.json'))
         return JsonResponse(data)

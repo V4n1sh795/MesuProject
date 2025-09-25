@@ -10,7 +10,7 @@ async def add_item_to_json(new_item):
     :param new_item: словарь для добавления, например {'id': 3, 'name': 'Charlie'}
     """
     # Если файл не существует — создаём пустой список
-    file_path = "datacsv/news.json"
+    file_path = "news.json"
     if not os.path.exists(file_path):
         data = []
     else:
@@ -34,7 +34,7 @@ async def add_item_to_json(new_item):
 
 async def get_item_by_id(target_id):
     try:
-        with open("datacsv/news.json", 'r', encoding='utf-8') as f:
+        with open("news.json", 'r', encoding='utf-8') as f:
             data = json.load(f)
         
         # Предполагается, что data — это список словарей

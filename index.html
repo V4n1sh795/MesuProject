@@ -21,13 +21,13 @@
     <script>
         async function sendData() {
             const title = document.getElementById('title').value;
-            const desc = document.getElementById('short_descriptiion').value;
+            const desc = document.getElementById('short_description').value;
             const payload = {
                 title: title,
                 desc: desc
             };
-
-            const res = await fetch('http://127.0.0.1:8000/api/items/', {
+            console.log(payload)
+            const res = await fetch('http://127.0.0.1:8000/api/items/post_news/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -39,12 +39,12 @@
 
         // Загрузить все данные при открытии
         window.onload = async () => {
-            const res = await fetch('http://127.0.0.1:8000/api/items/');
+            const res = await fetch('http://127.0.0.1:8000/api/items/get_news/', {method: 'GET'});
             const data = await res.json();
             console.log('Все данные:', data);
         };
         async function loadData() {
-            const res = await fetch('http://127.0.0.1:8000/api/items/',
+            const res = await fetch('http://127.0.0.1:8000/api/items/get_news/',
                 {
                     method: 'GET',
                 }

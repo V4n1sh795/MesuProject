@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JSON Client</title>
+</head>
+<body>
+    <h2>Отправить данные на сервер</h2>
+    <input type="text" id="title" placeholder="Название">
+    <input type="text" id="short_description" placeholder="Описание">
+    <button onclick="sendData()">Отправить</button>
+
+    <h3>Ответ от сервера:</h3>
+    <pre id="response"></pre>
+
+    <h2>Получить все новости</h2>
+    <input type="text" id="get_title" placeholder="Название">
+    <h2>Answer</h2>
+    <pre id="response2"></pre>
+    <button onclick="loadData()">GET</button>
+    <input type="file" id="imageInput" accept="image/*">
+    <img id="preview" style="max-width: 300px; display: none;" alt="Preview">
+    <p id="status"></p>
+    <button onclick="loadImages()">loadImages</button>
+    <div id="image-container">
+        <!-- Сюда будут добавляться изображения -->
+    </div>
+    <script>
+        async function sendData() {
+            const title = document.getElementById('title').value;
+            const desc = document.getElementById('short_description').value;
+            const payload = {
+                title: title,
+                desc: desc
+            };
+            console.log(payload)
+            const res = await fetch('http://127.0.0.1:8000/api/items/post_news/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await res.json();
+            document.getElementById('response').textContent = JSON.stringify(data, null, 2);
+        }
+
+        // Загрузить все данные при открытии
+        window.onload = async () => {
+            const res = await fetch('http://127.0.0.1:8000/api/items/get_news/', {method: 'GET'});
+            const data = await res.json();
+            console.log('Все данные:', data);
+        };
+        async function loadData() {
+            const res = await fetch('http://127.0.0.1:8000/api/items/get_news/',
+                {
+                    method: 'GET',
+                }
+            );
+            const data = await res.json();
+            document.getElementById('response2').textContent = JSON.stringify(data, null, 2);
+        }
+        
+    document.getElementById('imageInput').addEventListener('change', async (event) => {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        const formData = new FormData();
+        formData.append('image', file);
+
+        try {
+            const response = await fetch('/api/items/post_image/', {
+                method: 'POST',
+                body: formData,
+                // Если используете CSRF (в Django по умолчанию):
+                // headers: { 'X-CSRFToken': getCookie('csrftoken') }
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                // Показываем загруженное изображение
+                const preview = document.getElementById('preview');
+                preview.src = result.url;  // Например: /media/uploads/photo.jpg
+                preview.style.display = 'block';
+                document.getElementById('status').textContent = 'Изображение загружено!';
+            } else {
+                document.getElementById('status').textContent = 'Ошибка: ' + result.error;
+            }
+        } catch (error) {
+            document.getElementById('status').textContent = 'Сетевая ошибка: ' + error.message;
+        }
+    });
+
+    // Вспомогательная функция для CSRF (если нужно)
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    async function loadImages() {
+        try {
+            const response = await fetch('/api/items/get_images/', {method: 'GET'});
+            const data = await response.json();
+
+            const container = document.getElementById('image-container');
+            container.innerHTML = ''; // очищаем перед добавлением
+
+            data.images.forEach(img => {
+                const imgElement = document.createElement('img');
+                imgElement.src = img.url;  // URL изображения
+                imgElement.alt = `Image ${img.id}`;
+                imgElement.style.maxWidth = '300px';
+                imgElement.style.margin = '10px';
+
+                container.appendChild(imgElement);
+            });
+        } catch (error) {
+            console.error('Ошибка загрузки изображений:', error);
+        }
+    }
+    </script>
+</body>
+</html>

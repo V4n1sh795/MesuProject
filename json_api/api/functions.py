@@ -1,6 +1,10 @@
 import json
 import asyncio
 import os
+import uuid
+
+def generate_id():
+    return str(uuid.uuid4())
 
 async def add_item_to_json(new_item):
     """
@@ -26,6 +30,7 @@ async def add_item_to_json(new_item):
                 data = []
 
     # Добавляем новый элемент
+    new_item['id'] = generate_id()
     data.append(new_item)
 
     # Записываем обратно в файл

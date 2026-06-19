@@ -166,7 +166,11 @@ main {
 
 
 .fone {
-  background-image: url('../img/pattern.png');
+<<<<<<< HEAD
+  width: 100%;
+=======
+  background-image: url('/static/img/main-page/background.jpg');
+>>>>>>> 774ea06 (Самая свежая версия)
   background-repeat: repeat;
   /* узор будет повторяться по всей странице */
   background-size: auto;
@@ -190,6 +194,10 @@ main {
   /*padding: 20px; */
   box-sizing: border-box;
   /* overflow: hidden; */
+<<<<<<< HEAD
+  width: 100%;
+=======
+>>>>>>> 774ea06 (Самая свежая версия)
 }
 
 
@@ -197,7 +205,11 @@ main {
 /* Контент-блок — белый/светлый прямоугольник поверх фона */
 .content-wrapper {
   /* max-width: 1720px; */
+<<<<<<< HEAD
+  
+=======
   max-width: 92%;
+>>>>>>> 774ea06 (Самая свежая версия)
   width: 100%;
   background-color: rgb(237, 242, 242);
   box-sizing: border-box;
@@ -215,8 +227,12 @@ main {
   font-size: 30px;
   line-height: 100%;
   letter-spacing: 0%;
+<<<<<<< HEAD
+  text-align: center;
+=======
   text-align: left;
   padding-left: 100px;
+>>>>>>> 774ea06 (Самая свежая версия)
   margin-bottom: 60px;
   padding-top: 60px;
 }
@@ -248,8 +264,12 @@ main {
 .line-card {
   display: flex;
   justify-content: center;
+<<<<<<< HEAD
+  width: 100%;
+=======
   min-width: 80%;
   max-width: 80%;
+>>>>>>> 774ea06 (Самая свежая версия)
   margin-bottom: 37px;
 }
 
@@ -507,7 +527,11 @@ h3 {
     flex-direction: column;
     gap: 30px;
     padding: 20px 0;
+<<<<<<< HEAD
+    
+=======
     max-width: 95%;
+>>>>>>> 774ea06 (Самая свежая версия)
   }
 
   .section-title {

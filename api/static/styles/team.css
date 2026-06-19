@@ -245,12 +245,15 @@ header {
 
 
 .fone {
-  background-image: url('../img/pattern.png');
+<<<<<<< HEAD
+  width: 100%;
+=======
+  background-image: url('/static/img/main-page/background.jpg');
+>>>>>>> 774ea06 (Самая свежая версия)
   background-repeat: repeat;
   /* узор будет повторяться по всей странице */
   background-size: auto;
   /* не масштабировать, если это бесшовный паттерн */
-  background-position: top left;
   background-attachment: fixed;
   /* ← ЭТО КЛЮЧЕВОЕ СВОЙСТВО */
   margin: 0;
@@ -268,11 +271,19 @@ header {
   /* padding: 20px; */
   box-sizing: border-box;
   /* overflow: hidden; */
+<<<<<<< HEAD
+  width: 100%;
+=======
+>>>>>>> 774ea06 (Самая свежая версия)
 }
 
 .content-wrapper {
   /* max-width: 1720px; */
+<<<<<<< HEAD
+  
+=======
   max-width: 92%;
+>>>>>>> 774ea06 (Самая свежая версия)
   width: 100%;
   background-color: rgb(237, 242, 242);
   box-sizing: border-box;
@@ -288,8 +299,13 @@ header {
   grid-template-columns: repeat(3, 1fr);
   gap: 50px 0px;
   justify-items: center;
+<<<<<<< HEAD
+  width: 100%;
+  padding: 0px 190px 200px;
+=======
 
   padding: 150px 190px 200px;
+>>>>>>> 774ea06 (Самая свежая версия)
 }
 
 /* Карточка */
@@ -392,8 +408,13 @@ header {
   width: 252px;
   height: 226.5px;
 
+<<<<<<< HEAD
+  background-image: url('../img/team-page/load.png');
+  background-size: 160px;
+=======
   background-image: url('../img/team-page/round.svg');
   background-size: contain;
+>>>>>>> 774ea06 (Самая свежая версия)
   background-repeat: no-repeat;
   z-index: -1;
 }
@@ -762,4 +783,12 @@ header {
   .text-block .standard-text {
     margin-top: 10px;
   }
+<<<<<<< HEAD
+}
+
+.team-page-glitter {
+  margin-left: 1370px;
+  margin-top: 40px;
+=======
+>>>>>>> 774ea06 (Самая свежая версия)
 }

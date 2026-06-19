@@ -38,6 +38,8 @@ function renderNewsPage(page) {
         const newsLink = document.createElement('a');
         newsLink.href = news.url || '#';
         newsLink.className = 'news-link';
+        newsLink.target = '_blank';
+        newsLink.rel = 'noopener noreferrer';
 
         // Название 
         const newsTitle = document.createElement('h3');

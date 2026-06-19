@@ -245,12 +245,16 @@ header {
 
 
 .fone {
-  background-image: url('../img/pattern.png');
-  background-repeat: repeat;
+<<<<<<< HEAD
+  width: 100%;
+=======
+  background-image: url('/static/img/main-page/background.jpg');
+>>>>>>> 774ea06 (Самая свежая версия)
+  background-repeat: no-repeat;
   /* узор будет повторяться по всей странице */
-  background-size: auto;
+  background-size: 100%;
   /* не масштабировать, если это бесшовный паттерн */
-  background-position: top left;
+  background-position: center;
   background-attachment: fixed;
   /* ← ЭТО КЛЮЧЕВОЕ СВОЙСТВО */
   margin: 0;
@@ -268,12 +272,19 @@ header {
   /*padding: 20px; */
   box-sizing: border-box;
   /* overflow: hidden; */
+<<<<<<< HEAD
+  width: 100%;
+=======
+>>>>>>> 774ea06 (Самая свежая версия)
 }
 
 /* Контент-блок — белый/светлый прямоугольник поверх фона */
 .content-wrapper {
   /* max-width: 1720px; */
+<<<<<<< HEAD
+=======
   max-width: 92%;
+>>>>>>> 774ea06 (Самая свежая версия)
   width: 100%;
   background-color: rgb(237, 242, 242);
   box-sizing: border-box;
@@ -295,7 +306,10 @@ header {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 50px 0px;
+<<<<<<< HEAD
+=======
   width: 100%;
+>>>>>>> 774ea06 (Самая свежая версия)
   justify-items: center;
   width: 100%;
   padding: 10px 150px 100px;
@@ -360,8 +374,22 @@ header {
   font-weight: 700;
   font-size: 30px;
   text-align: center;
-  margin-bottom: 40px;
   color: #000;
+  margin: 0;
+}
+
+.partners-title-wrapper {
+  background: white;
+<<<<<<< HEAD
+  
+  padding: 40px 20px 20px;
+  text-align: center;
+  width: 100%;
+=======
+  border-radius: 24px 24px 0 0;
+  padding: 40px 20px 20px;
+  text-align: center;
+>>>>>>> 774ea06 (Самая свежая версия)
 }
 
 .partner-link {
@@ -536,7 +564,10 @@ header {
     flex-direction: column;
     gap: 30px;
     padding: 20px 0;
+<<<<<<< HEAD
+=======
     max-width: 95%;
+>>>>>>> 774ea06 (Самая свежая версия)
   }
 
 
@@ -630,3 +661,4 @@ header {
   }
 
 }
+
